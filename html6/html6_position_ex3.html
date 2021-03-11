@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		p, div {
+			width: 200px;
+			height: 100px;
+		}
+		
+		#ex1 {
+			background-color: aqua;
+		}
+		
+		#ex2 {
+			background-color: yellow;
+			position: fixed;
+			left: 50px;
+			top: 30px;
+		}
+		
+		#ex3 {
+			background-color: green;
+		}
+		
+		#container {
+			background-color: gray;
+		}
+		
+		img {
+			width: 300px;
+			position: absolute;
+			top: 500px;
+			z-index: -1;
+		}
+		img+p{ /* +는 바로 뒤에오는 것이 형제요소 */
+			color:yellow;
+		}
+	</style>
+</head>
+<body>
+	<p id="ex1">박스1</p>
+	<div id="container">
+		<div id="ex2">박스2</div>
+	</div>
+	<p id="ex3">박스3</p>
+</body>
+</html>
