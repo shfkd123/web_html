@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JS 연산자</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//문자와 문자를 연결
+		var str1 = "Welcome to";
+		var str2 = "JavaScript";
+		var str3 = str1 + str2; // => "Welcome toJavaScript"
+		var str4 = str1 + " " + str2; // => "Welcome to JavaScript"
+		document.write(str4); 
+
+		document.write("<br>");
+		
+		//숫자와 문자를 연결
+		var no1 = 10;
+		var no2 = 20;
+		var no3 = no1 + no2; 
+		document.write(no3);
+		var str5 = "홍길동";
+		document.write(no3 + str5);
+		document.write("<br>");//script영역 밖에 <br>태그를 쓰겠다. 
+		
+		document.write(no1 + str5 + no2); //숫자 + 글자 + 숫자
+		document.write("<br>");
+		document.write(no1 + no2 + str5); //숫자  + 숫자 + 글자
+		document.write("<br>");
+		document.write(no1 + no2 + str5 + no1 + no2);//출력결과 30홍길동1020
+		//숫자였다가 문자를 더하면 문자가 되어서 숫자를 더해줬지만, 글자로 인식하기 때문에 덧셈이 되지 않았다. 
+		
+		document.write("<hr>");
+		
+		var x, y //int형으로 사용할 x, y
+		var input; //String형으로 사용할 input 
+		//var x, y, input //같이 사용할 수 있지만, 나눠서 선언하는게 나중에 코드가 길어질때 좋음
+		
+		input = prompt("정수를 입력하시오", "정수로"); //"정수로"는 sample데이터
+		x = parseInt(input);
+		//prompt라는 내장함수는 입력을 받을 수 있는 메시지 박스를 띄운다. 
+		//사용자가 데이터를 입력하고 확인버튼을 누르면, 값이 prompt로 넘어가고 input으로 할당된다. 
+		//사용자가 입력된 값은  String 타입으로 넘어오고 parseInt로 정수로 변환한다. 
+		input = prompt("정수를 입력하시오", "정수로");
+		y = parseInt(input);
+		
+		document.write(x + y);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+	<br>
+</body>
+</html>
