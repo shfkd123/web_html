@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<p id="a"></p>
+	<script type="text/javascript">
+		//무명함수 예제 
+		function sub(a, b){
+			return a + b;
+		}
+		
+		window.onload = function(){
+			document.getElementById("a").innerHTML = sub(4,5);
+			
+			var result = confirm('컨펌 메시지 입니다. '); //확인,취소 버튼 
+			document.getElementById("tmp1").innerHTML = result; //p태그 -> innerHTML 
+		}
+	</script>
+</body>
+</html>

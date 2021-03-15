@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>객체 생성 방법</title>	
+	<script type="text/javascript">
+		//상수로 객체 생성
+		var myCar = {
+			mosel : "GV80"
+			,color : "blue"
+			,year : 2020
+			,speed : 30
+			,brake : function(){ //function의 이름이 brake임
+				//속도 줄이기(speed)
+				this.speed -= 10; //this.speed의 의미는 myCar.speed
+			}
+			,accel : function(){
+				//속도 올리기(accel)
+				this.speed += 10;
+			} 
+		}; //객체 생성
+		
+		alert(myCar.color);
+		myCar.color = "red";
+		alert(myCar.color); 
+		
+		alert(myCar.speed);
+		myCar.brake();
+		alert(myCar.speed);
+		
+		//생성자로 객체 생성
+		function Car(model, color, speed) {
+			this.model = model; 
+			this.color = color;
+			this.speed = speed;
+			
+			this.brake = function(){
+				this.speed -= 10;
+			}
+			this.accek = function(){
+				this.speed += 10;
+			}
+		}
+		
+		var hongCar = new Car("GV70", "red", 0);
+		var leeCar = new Car("G80", "blue", 100); //객체 생성
+		
+		hongCar.color = "white";
+		hongCar.brake();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

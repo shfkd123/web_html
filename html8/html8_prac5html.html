@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+	hr{
+		background-color: blue;
+		height: 2px;
+		
+	}</style>
+</head>
+<body>
+	<button type="button" onclick ="random()">시작</button>
+	<hr>
+	<h1>출력위치</h1>
+	<script type="text/javascript">
+		function random() {
+			for (var i = 0; i < 5; i++) {
+				var r = Math.random();
+				document.write(Math.floor(r * 10));
+			}
+		}
+	</script>
+</body>
+</html>
