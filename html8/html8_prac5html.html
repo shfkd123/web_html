@@ -9,18 +9,20 @@
 		height: 2px;
 		
 	}</style>
+
+	<script type="text/javascript">
+		function random() {
+			for (var i = 0; i < 5; i++) {
+				var r = (Math.random() * 10 + 1);
+				document.getElmentById("tx").innerHTML = r;
+			}
+		}
+	</script>
 </head>
 <body>
 	<button type="button" onclick ="random()">시작</button>
 	<hr>
 	<h1>출력위치</h1>
-	<script type="text/javascript">
-		function random() {
-			for (var i = 0; i < 5; i++) {
-				var r = Math.random();
-				document.write(Math.floor(r * 10));
-			}
-		}
-	</script>
+	<textarea id="tx" rows="7" cols="30"></textarea>
 </body>
 </html>
