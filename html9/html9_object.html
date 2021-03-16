@@ -47,6 +47,24 @@
 		
 		hongCar.color = "white";
 		hongCar.brake();
+		
+		//object를 배열로 변환 - Object.values()
+		var person = {
+			name : "홍길동"
+			,age : 30
+			,city : "대전" /* ,는 앞쪽에 쓰는것이 좋음 (에러, 유지보수) */
+			,nation : "대한민국"
+		};
+		var tmp = Object.values(person);
+		alert(tmp);
+		//document.write(tmp); => document.write는 새페이지에서 출력하는 것임. 별로 안쓰는 것이 좋음. 
+		
+		
+		document.write("object를 문자로 변환 - JSON.stringify()<br>")
+		tmp = JSON.stringify(person);
+		document.write(tmp);
+		
+		
 	</script>
 </head>
 <body>

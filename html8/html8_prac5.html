@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+<style type="text/css">
+hr {
+	background-color: blue;
+	height: 2px;
+}
+
+textarea {
+	background-color: yellow;
+}
+</style>
+
+<script type="text/javascript">		
+		function random() {
+			var r1 = parseInt(Math.random() * 10);
+			var r2 = parseInt(Math.random() * 10);
+			var r3 = parseInt(Math.random() * 10);
+			var r4 = parseInt(Math.random() * 10);
+			var r5 = parseInt(Math.random() * 10);
+			
+			document.getElementById("tx").innerHTML += r1 + "," + r2 + "," + r3 + "," 
+																+ r4 + "," + r5 + "\n";			
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="random()">시작</button>
+	<hr>
+	<h1>출력위치</h1>
+	<textarea id="tx" rows="7" cols="30"></textarea>
+
+</body>
+</html>
