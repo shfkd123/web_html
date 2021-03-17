@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		s = "One, Two, Three, Four, Five";
+		array = s.split('.');
+		for (var i = 0; i < array.length; i++) {
+			document.write(i + '-' + array[i] + '<br>');
+		}
+		
+		var str2 = "이휘로, 전윤주, 김현슬, 박예진, 정유진";
+		document.write(str2 + "<br>");
+		
+		var arr2 = str2.split(","); //split 사용시 배열로 리턴
+		// arr2는 ["이휘로", "전윤주", "김현슬", "박예진", "정유진"]
+		document.write("split 결과 : " + arr2 + "<br>");
+		document.write("split 결과 arr 길이 : " + arr2.length + "<br>");
+		
+		for (var i = 0; i < arr2.length; i++) {
+			document.write((i + 1) + ")"+ arr2[i] + "님 안녕 " + "<br>");
+			//이휘로님 안녕
+			//전윤주님 안녕
+			// ... 
+		}
+	</script>
+</body>
+</html>
