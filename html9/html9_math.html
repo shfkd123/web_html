@@ -40,4 +40,27 @@
 	}
 	
 </script>
+
+<script type="text/javascript">
+	function getLotto() {
+		var arr = [];
+		
+		while(arr.length < 6){
+			var no = Math.floor(Math.random()*45 + 1);
+			
+			//배열에 담기전에 중복 값이 있는지 체크
+			if(arr.indexOf(no) == -1){
+				arr.push(no);
+			}
+		}
+		//배열 정렬
+		arr.sort(function(a, b){
+			console.log("a:" + a);
+			console.log("b:" +b);
+			console.log("a-b:" + a - b);
+			return a - b;
+		});
+		document.getElementById("lottoResult").innerHTML = arr;
+	}
+</script>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<form action="">
+		<input type="text" id="target" name="userName">
+		<button type="button" onclick="proc()">제출</button>
+	</form>
+
+		<div>무궁화 꽃이 피었습니다.</div>
+		<button type="button" onclick="get()">내용 가져오기</button>
+		<button type="button" onclick="set('오냐')">내용 바꾸기</button>
+		
+		<hr>
+		<img id="image1" alt="커피" src="../../images/coffee.jpg">
+		<button type="button" onclick="changeImage()">이미지 변경</button>
+		
+		<hr>
+		<p id="p1" style="border: 1px solid red;">동해물과 백두산이 마르고 닳도록~</p>
+		<button type="button" onclick="changeStyle()">스타일 변경</button>
+	
+		<hr>
+		<img id="lionimage" alt="사자" src="../../images/lion.jpg" onclick="changeImageAnimal()">
+	
+	
+	<script type="text/javascript">
+	function changeImageAnimal() {
+		//id로 가져와서 속성 바꾸기
+		var orgSrc = document.getElementById("lionimage").src;
+		
+		var newSrc;
+		if(orgSrc.indexOf("coffee") > -1){
+			newSrc = "../../images/lion.jpg"
+		} else{
+			newSrc = "../../images/tiger.jpg"
+		}
+	
+	}
+
+		document.getElementById("tigerimage").src = "../../images/lion.jpg"; // src가 바뀐다.		
+	
+	
+	function changeStyle() {
+		document.getElementById("p1").style.color = "red";
+		document.getElementById("p1").style.border = "3px dotted green";
+		document.getElementById("p1").style.fontStyle = "italic";
+		}
+	function changeImage() {
+		//id로 가져와서 속성 바꾸기
+		document.getElementById("image1").src = "../../images/IU.jpg"; // src가 바뀐다. 
+	}
+	
+	function get() {
+		document.getElementsByTagName("div"); //배열로 반환
+		var obj = document.getElementsByTagName("div")[0]; //div 반환
+		alert(obj.innerHTML);
+	}
+	
+	function set(param) {
+		document.getElementsByTagName("div")[0].innerHTML = param;
+	}
+	
+	function proc() {
+		var obj = document.getElementById("target");
+		
+		alert(obj);
+		alert(obj.value);
+	}
+	</script>
+</body>
+</html>
