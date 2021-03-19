@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+	function addImg(obj, fileName) { 
+		var arrImgs = document.getElementsByTagName("img");
+		//arrImgs : [<img>, ..] 
+		//현재 문제에서는 이미지를 앞에서 부터 지워도 하나이기 때문에 상관없음
+		for (var i = 0; i < arrImgs.length; i++) {
+			arrImgs[i].remove(); //<li>
+		}
+		
+		//alert(obj); //출력 결과 : [object HTMLLIElement]
+		//alert(obj.innerHTML);
+		//alert("id : " + obj.id);
+		
+		var objImg = document.createElement("img");
+		objImg.src = "../../images/" + fileName;
+		objImg.height = "30";
+		
+		obj.appendChild(objImg);
+	}
+	</script>
+</head>
+<body>
+	<ul>
+		<li id="tmp1" onclick="addImg(this, 'coffee.jpg')">컴퓨터</li> <!-- this는 li -->
+		<li id="tmp2" onclick="addImg(this, 'bg1.jpg')">식품</li>
+		<li id="tmp3" onclick="addImg(this, 'universe.jpg')">호랑이</li>
+		<li id="tmp4" onclick="addImg(this, 'tiger.jpg')">cloud03</li> 
+		<li id="tmp5" onclick="addImg(this, 'IU.jpg')">coffee</li>		
+	</ul>
+</body>
+</html>

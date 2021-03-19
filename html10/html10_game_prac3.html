@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* function gbb(){
+	var input = prompt("가위 바위 보 게임! 가위 바위 보 중 하나를 입력하세요!");
+	
+	var ghhImgs = document.getElementsByTagName("img");
+	
+	var arrGbb = ["가위", "바위", "보"]; // 0,1,2
+	//Math.random()*3// 0~3 => 0~2.9999
+	var comIdx = parseInt(Math.random()*3);
+	var conGbb = arrGbb[comIdx];
+	
+	var userGbb = document.getElementById("gbb").value;
+	var userIdx = arrGbb.indexOf(userGbb);
+	
+	//가위바위보 비교
+	if(comIdx == userIdx) {
+		alert("비겼습니다. \n컴퓨터 : " + comGbb + "\n사용자 : " + userGbb);
+		
+	} else if(comIdx < userIdx == 2){ //사용자가 이긴 경우
+		alert("졌습니다. \n컴퓨터 : " + comGbb + "\n사용자 : " + userGbb);
+	} else { //사용자가 이긴 경우
+		alert("이겼습니다. \n컴퓨터 : " + comGbb + "\n사용자 : " + userGbb);		
+	}else if(comIdx > userIdx){ //2,1 2,0 1,0
+		if(comIdx == 2 && userIdx == 0){ //사용자가 이김
+			alert("이겼습니다. \n컴퓨터 : " + comGbb + "\n사용자 : " + userGbb);			
+		}else { //컴퓨터가 이긴 경우
+			alert("졌습니다. \n컴퓨터 : " + comGbb + "\n사용자 : " + userGbb);		
+		}
+	}	
+} */
+
+function gbb(){
+	var userinput = prompt("가위 바위 보를 입력하세요!");
+	
+	var arrGbb = ["가위", "바위", "보"]; // 0,1,2	
+	var comIdx = parseInt(Math.random()*3);
+	var comGbb = arrGbb[comIdx];
+	
+	if(userinput == "가위" && comGbb == 0){
+		alert("사용자와 컴퓨터가 서로 비겼습니다. \n컴퓨터 : " + comGbb + "\n사용자 : " + userGbb )
+	}else if(userinput == "가위" && comGbb == 1){
+		alert("사용자가 졌습니다. \n컴퓨터 : " + comGbb + "\n사용자 : " + userGbb )
+	}else if(userinput == "가위" && comGbb == 2){
+		alert("사용자가 이겼습니다. \n컴퓨터 : " + comGbb + "\n사용자 : " + userGbb )
+	}
+	
+}
+</script>
+</head>
+<body>
+	<button type="button" onclick="gbb()">게임시작</button>
+</body>
+</html>

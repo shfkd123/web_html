@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function addImages(t){
+		var arr = document.getElementsByTagName("li"); //TagName으로 요소 찾는다.
+		
+		//이미지 소스를 가지고 있는 배열
+		var arrImgSrc = ["bg1.jpg", "IU.jpg", "universe.jpg", "tiger.jpg", "coffee.jpg"];
+		
+		for (var i = 0; i < arr.length; i++) {
+			//이미지 요소를 생성
+			var imgObj = document.createElement('img');
+			//<img alt="" src="../../images/coffee.jpg" width="100px" height="100px;">
+			imgObj.alt = "뭐지";
+			//imgObj.src = "../../images/coffee.jpg";
+			imgObj.src = "../../images/" + arrImgSrc[i];
+			imgObj.height = "30";
+			
+			arr[i].appendChild(imgObj);// <li>컴퓨터<img></li>
+		}
+	}
+</script>
+	<script type="text/javascript">
+	function removeChild1() {
+		var parentEle = document.getElementById("target"); //<div>
+		var childEle = document.getElementById("p1");//<p>
+		parentEle.removeChild(childEle);
+	}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="addImages()">실행</button>
+	<ul id="product">
+		<li>컴퓨터1<img alt="" src="../../images/coffee.jpg" width="100px" height="100px;"></li>
+		<li>컴퓨터</li>
+		<li>식품2</li>
+		<li>호랑이</li>
+		<li>cloud03</li> 
+		<li>coffee1</li>		
+	</ul>
+	
+	<hr>
+	
+	<div id="target">
+		<p id="p1">첫번째 단락</p>
+		<p id="p2">두번째 단락</p> 
+	</div>
+	<button type="button" onclick="removeEle1()">삭제</button>	
+</body>
+</html>

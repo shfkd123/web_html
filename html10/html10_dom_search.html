@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p id="tmp1">동해물과 백두산이</p>
+	<ul id="tmp2">
+		<li>아메리카노</li>
+		<li id="tmp3">카푸치노</li>
+		<li>카페라떼</li>		
+	</ul>
+	
+	<div id="target" style="font: 20px bold; "
+	onclick="addtext('무궁화 꽃이 피었습니다.')">여기를 클릭하세요.</div>
+	
+<script type="text/javascript">
+	function addtext(t){
+		//기존 요소에 자식요소 추가하기
+		var node = document.createTextNode(t);
+		document.getElementById("target").appendChild(node);
+	}
+</script>
+
+</body>
+</html>
