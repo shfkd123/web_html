@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var random = document.getElementById("가위바위보").value;
+		vat fileName = "";
+		function gbb() {
+			// 셀렉트 박스에서 선택된 값 가져오기 
+			var userIdx = document.getElementById("user").value;
+			/* switch (res) {
+			case "가위":
+				fileName = "ga_left";
+				break;
+			case "바위":
+				fileName = "";
+				break;
+			case "보":
+				fileName = "";
+				break;
+			}
+			document.getElementById("maning").src = "../../images/" */
+			
+		}
+	</script>
+</head>
+<body>
+	
+	<!-- <input id="가위바위보" type="text" value="가위바위보를 입력하세요."> --> 
+	<div>
+		<select id="user">
+			<option value="0">가위</option>
+			<option value="1">바위</option>
+			<option value="2">보</option>
+		</select>
+	</div>
+	<button type="button" onclick="gbb()">게임시작</button>
+</body>
+</html>
