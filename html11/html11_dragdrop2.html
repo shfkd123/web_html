@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div.box{
+			border: 1px solid pink;
+			height: 150px;
+		}
+		img {
+			height: 100px;
+		}
+	</style>
+	
+	<script type="text/javascript">
+	var obj = null;
+	/* function dragObj(ele) {
+		obj = ele;
+	} */
+	function dragObj(ev){
+		
+		ev.dataTransfer.setData("text", ev.target.id);
+		// ==> 대상 요소에 id가 있어야 함!!
+	}
+	function dropObj(ev) {
+		ev.preventDefault();
+		//ev.target ===> <div>객체
+		//ev.ratget ===> 이벤트가 발생한 요소(element)
+		
+		if(obj == null){
+			var eleId = ev.dataTransfer.getData("text");
+			obj = document.getElementById(eleId);
+		}
+		ev.target.append(obj);
+		obj = null;
+	}
+	function allowDrop(ev) {
+		ev.preventDefault();
+	}
+	</script>
+</head>
+<body>
+	<div>
+		<p>원하는 물건을 끌어서 옮기세요</p>
+	</div>
+	<div class="box" ondrop="dropObj(event)" ondragover="allowDrop(event)"></div>
+							<!-- event는 내장 객체-->
+	<div>
+	<!-- 	<img ondragstart="dragObj(this)" alt="컴퓨터1" src="../../images/computer1.jpg"> -->
+		<img ondragstart="obj = this;" alt="컴퓨터1" src="../../images/computer1.jpg">
+		<img id="img2" ondragstart="dragObj(event)" alt="컴퓨터2" src="../../images/computer2.jpg">
+		<img id="img3" ondragstart="dragObj(event)" alt="컴퓨터3" src="../../images/computer3.jpg">
+	</div>	
+</body>
+</html>
