@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	function checkEmpty() {
+		var ele = document.getElementById("userName");
+		if (ele.value.trim().length == 0){//ele.value.length => 요소의 값의 길이
+			alert("이름이 입력되지 않았습니다.");
+			ele.focus();
+			//focus를 사용하기 위해  ele.value.length로 받음.
+			//focus는 커서를 위치시켜 바로 입력이 가능하게 한다.
+			//trim 공백을 체크하기 위해
+			return;
+		}
+	}
+	
+	function checkLength(){
+		var ele = document.getElementById("userId");
+		if(ele.value.length < 6 || ele.value.length > 8){
+			alert("아이디는 6~8 글자 입니다.");
+			ele.focus();
+			return;
+		}
+	}
+	
+	/* function validate() {
+		// 1. 빈값 체크 (우선 순위) 
+		// 2. 자릿수 체크
+		var eleName = document.getElementById("userName");
+		var eleAdd = document.getElementById("userAdd");
+		var eleBir = document.getElementById("userBir");
+		var eleId = document.getElementById("userId");
+		var eleEmail = document.getElementById("userEmail");
+		var elePhoneNumber = document.getElementById("userPhoneNumber");
+		
+		if(eleName.value.trim().length == 0 || eleAdd.value.trim().length == 0 ||
+				eleBir.value.trim().length == 0 || eleId.value.trim().length == 0 ||
+				eleEmail.value.trim().length == 0 || elePhoneNumber.value.trim().length == 0){
+			alert("공백이 존재합니다.");
+			eleName.focus();
+			eleAdd.focus();
+			eleBir.focus(); 
+			eleId.focus();
+			eleEmail.focus();
+			elePhoneNumber.focus();
+			//하나 하나 나눠서 확인하고 넘어가게 만들기
+		}if(eleName.value.length < 2 || eleName.value.length > 5){
+			alert("이름은 2 ~ 5자 입니다.");
+			eleName.focus();
+			return;
+		}
+		if(eleBir.value.length == 0  || eleBir.value.length > 10){
+			alert("생년월일은 최대 10자 입니다.");
+			eleName.focus();
+		}if(eleId.value.length < 6 || eleId.value.length > 8){
+			alert("아이디는 6~8 글자 입니다.");
+			eleId.focus();
+			return;
+		}if(elePhoneNumber.value.length > 13){
+			alert("휴대폰 번호는 최대 13자 입니다.");
+			elePhoneNumber.focus();
+			
+			/* var val = ~;
+			val = val.replaceAll("-", "");
+			val.length == 10 || 9
+			
+			try{
+				parseInt(val);
+			}catch (ex) {
+				alert();
+			} */
+		}
+			
+	} */
+	
+	function validate(){
+		//핸드폰 번호 검사 
+		var ele = document.getElementById("userPhoneNumber");
+		var regExp = /^\d{3}-?\d{3,4}-?\d{4}$/;
+		if(ele.value.match(regExp)){
+			alert("전화번호가 정상입니다.");
+			return;
+		}else {
+			alert("전화번호가 오류입니다.");
+			ele.focus();
+			return;
+		}
+	}
+	
+	function email_validate(){
+		var ele = document.getElementById("")
+	}
+</script>
+</head>
+<body>
+	<h3>회원가입</h3>
+	<form>
+		이름 : <input type="text" id="userName"><br>
+		주소 : <input type="text" id="userAdd"><br>
+		생일 : <input type="date" id="userBir"><br>
+		아이디(6~8)문자 : <input type="text" id="userId"><br>
+		이메일 : <input type="email" id="userEmail"><br>
+		휴대폰 : <input type="text" id="userPhoneNumber"><br>
+		<!-- <button type="submit">확인(서브밋)</button><br>onclick을 하지 않아도 submit은 서버로 바로 전송됨
+		<button type="button" onclick="checkEmpty()">확인1</button><br>
+		<button type="button" onclick="checkLength()">확인2</button><br> -->
+		<button type="submit" onclick="validate()">확인</button><br>
+	</form>
+</body>
+</html>
