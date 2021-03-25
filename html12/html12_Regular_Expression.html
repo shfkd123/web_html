@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+		div{
+			background-color: lightgray;
+			border: solid 1px;
+			width: 400px;
+		}
+	</style>
+	<script type="text/javascript">
+		function validate() {
+			//빈칸, 공백 
+			//아이디
+			var eleId = document.getElementById("userId");
+			if (eleId.value.trim().length == 0){
+				alert("공백이 존재합니다");
+				eleId.focus();
+				return;
+			}
+			var idReg = /^[A-za-z]{5,10}$/g; 
+			//영문 대문자 또는 소문자로 시작, 길이는 5~10 ,끝날때 영문 대문자 또는 소문자
+			if (eleId.value.match(idReg)) {
+				alert("아이디가 정상입니다.");
+				return;
+			} else {
+				alert("아이디 오류입니다.");
+				eleId.focus();
+				return;
+			}
+		
+			//비밀번호
+			var elePW = document.getElementById("userPw");
+			if (elePW.value.trim().length == 0){
+				alert("공백이 존재합니다");
+				elePW.focus();
+				return;
+			}
+			var pwReg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+			//8자 이상이어야 하고, 숫자/소문자/대문자/특수문자를 모두 포함
+			if (elePW.value.match(pwReg)) {
+				alert("비밀번호가 정상입니다.");
+				elePW.focus();
+				return;
+			} else {
+				alert("비밀번호 오류입니다.");
+				return;
+			}
+			//이름
+			var eleName = document.getElementById("userName");
+			if (eleName.value.trim().length == 0){
+				alert("공백이 존재합니다");
+				eleName.focus();
+				return;
+			}
+			if(eleName.value.length < 2 || eleName.value.length > 5){
+				alert("이름은 2 ~ 5자 입니다.");
+				eleName.focus();
+				return;
+			}
+			//생년월일
+			var eleBir = document.getElementById("userBir");
+			if (eleBir.value.trim().length == 0){
+				alert("공백이 존재합니다");
+				eleBir.focus();
+				return;
+			}
+			//핸드폰 번호 검사 
+			var elePN = document.getElementById("userPhoneNumber");
+			if (elePN.value.trim().length == 0){
+				alert("공백이 존재합니다");
+				elePN.focus();
+				return;
+			}
+			var pnReg = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
+			if (elePN.value.match(pnReg)) {
+				alert("휴대폰 번호 인증 성공");
+				elePN.focus();
+				return;
+			} else {
+				alert("휴대폰 번호 인증 실패");
+				return;
+			}
+			
+			//이메일
+			var eleEmail = document.getElementById("userEmail");
+			if (eleEmail.value.trim().length == 0){
+				alert("핸드폰번호가 입력되지 않았습니다.");
+				eleEmail.focus();
+				return;
+			}
+			var emailReg = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+			if (eleEmail.value.match(emailReg)) {
+				alert("이메일 인증 성공");
+				eleEmail.focus();
+				return;
+			} else {
+				alert("이메일 인증 실패");
+				return;
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<div>
+		<div>
+		회원정보입력<br>
+		아이디(5~10)문자 : <input type="text" id="userId"><br>
+		비밀번호 : <input type="text" id="userPw"><br>
+		이름 : <input type="text" id="userName"><br>
+		생년월일 : <input type="date" id="userBir"><br>
+		휴대폰 : <input type="text" id="userPhoneNumber"><br>
+		이메일 : <input type="email" id="userEmail"><br>
+		<button type="submit" onclick="validate()">전송</button>
+		<button type="reset">취소</button>
+		</div>
+	</div>
+</body>
+</html>

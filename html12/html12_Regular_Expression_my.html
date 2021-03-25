@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function sendUserInfo() {
+		//밸리데이션 로직
+		/* var result = validate();
+		if(!validate()) return; */
+		
+		if(!validate()) return;//result가 false일때 return 
+		
+		//사용자에게 전송여부 확인
+		if(!confirm("전송하시겠습까?")){ // 반환값 true 또는 false
+			return;		//false면 return	 
+		} 
+		// 서버 전송 로직 작성~
+	}
+	
+	//빈값체크 함수 isEmpty
+	function isEmpty(str){
+		if(str == null || str.length == 0)
+			//빈값이 경우
+			return true;		
+		//빈값이 아닌 경우
+	 	return false;		
+	}
+	
+	//공백체크 함수 hasBlank
+	function hasBlank(str){
+		return str.match(" ");
+	}
+	
+	//길이체크 함수 checkLength
+	function checkLength(str, min, max){
+		if(min == null && max == null){
+			return false;
+		}else if(min == null) {
+			if(str.length > max){ //최대값만 존재하는 경우
+				return false;
+			}
+		}else if(max == null) {
+			if(str.length < min){ //최소값만 존재하는 경우
+				return false;
+			}
+		} else { //최소값, 최대값이 둘다 존재하는 경우
+			if(str.length < min || str.length > max) { 
+			return false;
+			}
+		return true;
+		}
+	}
+
+	function checkRegExp(str, regExp){
+		return str.match(regExp);
+	}
+	
+	//유효성 체크
+	function validate(){
+		//아이디 검사 - 체크 순서도 중요
+		//아이디 오류시 포커스, 메시지
+		var ele, val;
+		var min, max;
+		
+		//아이디 체크 : 영어소문자 시작, 영어소문자 & 숫자, 5~10
+		var ele = document.getElementById("userId");
+		var val = ele.value;
+		min = 5;
+		max = 10;
+			
+		//1)빈값 체크
+//		if(val.trim().length == 0){
+		if(isEmpty(val)){
+			alert("아이디는 필수 입력입니다.");
+			ele.focus();
+			return false;
+		}
+		
+		//2)공백체크
+//		var regExp = /[0-9a-zA-Zㄱ-ㅎ가-힣]*\s+/; //앞에 문자가 있을수도 있고 없을수도 있고, 공백이 한개 이상
+//		if(val.match(regExp)){
+		if(hasBlank(val)){
+			alert("아이디에 빈칸은 입력하실 수 없습니다.");
+			ele.focus();
+			return false;
+		}
+		//3)길이체크
+		if(!checkLength(val, min, max)){
+			alert("아이디는 " + min + "글자이상, " + max + "이하 이어야합니다.");
+			ele.focus();
+			return false;
+		}
+		
+		//4)형식체크 : 영소시작. 영소 + 숫자
+		regExp = /^[a-z][0-9a-z]*/;
+		if(checkRegExp(val, /^[a-z][0-9a-z]*/)){
+			alert("아이디 형식이 잘못 되었습니다.\n 영어 소문자로 시작하고, 영어 소문자와 숫자로 입력하세요.");
+			ele.focus();
+			return false;
+		}
+				
+		//유효성 체크 비정상
+		//return false;
+		
+		//비밀번호 검사
+		// ==> /[a-z]+/ && /[A-Z]+/ &&/[0-9]+/ && /[특수문자..]+/ 인 경우 성공
+		//...
+		//핸드폰번호 검사 0101231234, 01012341234, 010-123-1234, 010-1234-1234
+		//==> /^[0-9]{3}[0-9]{3,4}[0-9]{4}|[0-9]{3}-[0-9]{3,4}-[0-9]{4}$/
+		
+		
+		//유효성 체크 정상
+		return true;
+	}
+
+</script>
+</head>
+<body>   
+	<form>
+		아이디 : <input type="text" id="userId" title="아이디"><br>
+		비밀번호 : <input type="password" id="userPassword" title="비밀번호"><br>
+		이름 : <input type="text" id="userName" title="이름"><br>
+		생년월일 : <input type="text" id="birthDay" title="생년월일"><br>
+		휴대폰 : <input type="text" id="phNo" title="휴대폰번호"><br>
+		이메일 : <input type="text" id="email" title="이메일"><br>
+		<!-- submit을 사용하고 사용자가 엔터키를 누르면 자동으로 서버에 전송된다.
+		     편한기능이지만, 웹접근성에 위배되기 때문에 필드에서는 사용하지 않는다. -->
+		<button type="button" onclick="sendUserInfo()">전송1</button>
+		<button type="submit">전송2</button>
+		<button type="reset">취소</button>
+	</form>
+</body>
+</html>
